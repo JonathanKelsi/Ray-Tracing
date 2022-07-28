@@ -1,5 +1,5 @@
 // Created by jonathan
-#include "../include/RayTracing.h"
+#include "RayTracing.h"
 #include <random>
 
 

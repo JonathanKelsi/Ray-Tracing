@@ -1,6 +1,6 @@
 // Created by jonathan
 
-#include "../include/HitRecord.h"
+#include "HitRecord.h"
 
 HitRecord::HitRecord() : m_point(), m_normal(), m_t(0), m_frontFace(false) {}
 

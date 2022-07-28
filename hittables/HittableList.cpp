@@ -1,5 +1,5 @@
 // Created by jonathan
-#include "../include/HittableList.h"
+#include "HittableList.h"
 
 HittableList::HittableList() {}
 

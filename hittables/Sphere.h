@@ -4,7 +4,7 @@
 #define RAYTRACING_SPHERE_H
 
 #include "IHittable.h"
-#include "Vec3.h"
+#include "../rays/Vec3.h"
 
 /**
  * This class represents a Sphere in R^3, that is hittable by rays.

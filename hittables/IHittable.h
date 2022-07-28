@@ -3,7 +3,7 @@
 #ifndef IHITTABLE_H
 #define IHITTABLE_H
 
-#include "Ray.h"
+#include "../rays/Ray.h"
 #include "HitRecord.h"
 
 /**

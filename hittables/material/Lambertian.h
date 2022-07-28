@@ -3,7 +3,7 @@
 #ifndef LAMBERTIAN_H
 #define LAMBERTIAN_H
 
-#include "Vec3.h"
+#include "../../rays/Vec3.h"
 #include "Material.h"
 
 class Lambertian : Material {

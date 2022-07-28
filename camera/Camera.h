@@ -3,7 +3,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "RayTracing.h"
+#include "../rays/RayTracing.h"
 
 class Camera {
 private:

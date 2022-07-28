@@ -1,6 +1,6 @@
 // Created by jonathan
 
-#include "../include/Camera.h"
+#include "Camera.h"
 
 Camera::Camera() {
     auto aspectRatio = 16.0 / 9.0;

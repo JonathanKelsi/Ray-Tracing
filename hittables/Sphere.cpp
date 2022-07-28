@@ -1,6 +1,6 @@
 // Created by jonathan
 
-#include "../include/Sphere.h"
+#include "Sphere.h"
 #include <cmath>
 
 Sphere::Sphere() {}

@@ -6,7 +6,7 @@
 #include <cmath>
 #include <limits>
 #include <memory>
-#include "Material.h"
+#include "../hittables/material/Material.h"
 
 // Common headers
 #include "Ray.h"

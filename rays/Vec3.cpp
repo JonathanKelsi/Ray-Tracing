@@ -1,6 +1,6 @@
 // Created by jonathan
 
-#include "../include/Vec3.h"
+#include "Vec3.h"
 #include <cmath>
 
 Vec3::Vec3() {

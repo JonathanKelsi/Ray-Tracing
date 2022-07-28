@@ -1,7 +1,7 @@
 // Created by jonathan
 
-#include "../include/Color.h"
-#include "../include/RayTracing.h"
+#include "Color.h"
+#include "RayTracing.h"
 
 void writeColor(std::ostream &out, Color pixelColor, int samplesPerPixel) {
     auto r = pixelColor.x();

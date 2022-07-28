@@ -3,8 +3,8 @@
 #ifndef RAYTRACING_MATERIAL_H
 #define RAYTRACING_MATERIAL_H
 
-#include "RayTracing.h"
-#include "HitRecord.h"
+#include "../../rays/RayTracing.h"
+#include "../HitRecord.h"
 
 class Material {
     public:
