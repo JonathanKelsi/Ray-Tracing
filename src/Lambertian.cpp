@@ -1,6 +1,6 @@
 // Created by jonathan
 
-#include "../header files/Lambertian.h"
+#include "../include/Lambertian.h"
 
 Lambertian::Lambertian(const Color &albedo) : m_albedo(albedo) {}
 

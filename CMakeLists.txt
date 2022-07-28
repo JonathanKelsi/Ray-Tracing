@@ -4,15 +4,30 @@ project(RayTracing)
 set(CMAKE_CXX_STANDARD 11)
 
 set(PROJECT_HEADERS
-        "header files/Vec3.h"
-        "header files/Color.h"
-        "header files/Ray.h")
+        "include/Vec3.h"
+        "include/Color.h"
+        "include/Ray.h"
+        "include/IHittable.h"
+        "include/HitRecord.h"
+        "include/Sphere.h"
+        "include/HittableList.h"
+        "include/RayTracing.h"
+        "include/Camera.h"
+        "include/Material.h"
+        "include/Lambertian.h")
 
-set(PROJECT_SOURCES
-        "source files/Vec3.cpp"
-        "source files/Color.cpp"
-        "source files/Ray.cpp"
-        "main.cpp" "header files/IHittable.h" "header files/HitRecord.h" "source files/HitRecord.cpp" "header files/Sphere.h" "source files/Sphere.cpp" "header files/HittableList.h" "source files/HittableList.cpp" "header files/RayTracing.h" "source files/RayTracing.cpp" "header files/Camera.h" "source files/Camera.cpp" "header files/Material.h" "header files/Lambertian.h" "source files/Lambertian.cpp")
+
+        set(PROJECT_SOURCES
+        "src/Vec3.cpp"
+        "src/Color.cpp"
+        "src/Ray.cpp"
+        "main.cpp"
+        "src/HitRecord.cpp"
+        "src/Sphere.cpp"
+        "src/HittableList.cpp"
+        "src/RayTracing.cpp"
+        "src/Camera.cpp"
+        "src/Lambertian.cpp")
 
 
 add_executable(RayTracing ${PROJECT_SOURCES} ${PROJECT_HEADERS})

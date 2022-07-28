@@ -1,6 +1,6 @@
 // Created by jonathan
 
-#include "../header files/Ray.h"
+#include "../include/Ray.h"
 
 Ray::Ray() {}
 
