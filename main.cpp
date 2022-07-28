@@ -12,8 +12,8 @@ Color rayColor(const Ray& r, const IHittable& world, int  depth) {
     if (depth <= 0)
         return Color(0, 0, 0);
 
-    if (world.hit(r, 0, inf, rec)) {
-        Point3 target = rec.point() + rec.normal() + randomVectorInUnitSphere(); // Random diffuse bounce ray
+    if (world.hit(r, 0.001, inf, rec)) {
+        Point3 target = rec.point() + rec.normal() + randomUnitVector(); // Random diffuse bounce ray
         return 0.5 * rayColor(Ray(rec.point(), target - rec.point()), world, depth - 1);
     }
 

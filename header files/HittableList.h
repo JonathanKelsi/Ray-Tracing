@@ -11,18 +11,42 @@ class HittableList : public IHittable {
 private:
     std::vector<std::shared_ptr<IHittable>> m_hittables;
 public:
-    // Constructors
+    /**
+     * empty constructor.
+     */
     HittableList();
+
+    /**
+     * constructor.
+     * @param hittable a shared_ptr to a hittable object
+     */
     HittableList(std::shared_ptr<IHittable> hittable);
 
-    // Getter
+    /**
+     * hittables getter.
+     * @return the hittables vector
+     */
     std::vector<std::shared_ptr<IHittable>> hittables();
 
-    // Utility functions
+    /**
+     * clears the hittable vectors.
+     */
     void clear();
+
+    /**
+     * add another shared_ptr to vector.
+     * @param hittable
+     */
     void add(std::shared_ptr<IHittable> hittable);
 
-    // Abstract class functions overriding
+    /**
+     * indicates whether a ray hit one of the hittables in a specified interval.
+     * @param r a ray
+     * @param minT minimum value of the hit point
+     * @param maxT maximum value of the hit point
+     * @param rec a hit record
+     * @return whether r hit one of the hittables in the specified interval
+     */
     bool hit(const Ray& r, double minT, double maxT, HitRecord& rec) const override;
 };
 

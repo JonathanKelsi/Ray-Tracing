@@ -13,20 +13,65 @@ class Sphere : public IHittable {
 private:
     Point3 m_center;
     double m_radius;
+    std::shared_ptr<Material> m_materialPtr;
 public:
-    // Constructors
+    /**
+     * empty constructor.
+     */
     Sphere();
-    Sphere(Point3 center, double radius);
 
-    // Getters
+    /**
+     * constructor.
+     * @param center the center of the Sphere
+     * @param radius the radius of the Sphere
+     */
+    Sphere(Point3 center, double radius, std::shared_ptr<Material> materialPtr);
+
+    /**
+     * center getter.
+     * @return the center of the Sphere
+     */
     Point3 center() const;
+
+    /**
+     * radius getter.
+     * @return the radius of the Sphere
+     */
     double radius() const;
 
-    // Setters
-    void center(Point3 center);
+    /**
+     * materialPtr getter
+     * @return the materialPtr
+     */
+    std::shared_ptr<Material> materialPtr() const;
+
+
+    /**
+    * center setter.
+    * @param center a new center for the Sphere
+    */
+    void center(const Point3& center);
+
+    /**
+     * radius setter.
+     * @param radius a new radius for the Sphere
+     */
     void radius(double radius);
 
-    // Abstract class functions overriding
+    /**
+     * materialPtr setter
+     * @param materialPtr a new materialPtr
+     */
+    void materialPtr(std::shared_ptr<Material> materialPtr);
+
+    /**
+     * indicates whether a ray hit the Sphere in a specified interval.
+     * @param r a ray
+     * @param minT minimum value of the hit point
+     * @param maxT maximum value of the hit point
+     * @param rec a hit record
+     * @return whether r hit the Sphere in the specified interval
+     */
     bool hit(const Ray& r, double minT, double maxT, HitRecord& rec) const;
 };
 

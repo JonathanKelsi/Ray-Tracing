@@ -3,60 +3,35 @@
 #include "../header files/Sphere.h"
 #include <cmath>
 
-/**
- * empty constructor.
- */
 Sphere::Sphere() {}
 
-/**
- * constructor.
- * @param center the center of the Sphere
- * @param radius the radius of the Sphere
- */
-Sphere::Sphere(Point3 center, double radius)  : m_center(center), m_radius(radius) {}
+Sphere::Sphere(Point3 center, double radius, std::shared_ptr<Material> materialPtr) :
+    m_center(center), m_radius(radius), m_materialPtr(materialPtr) {}
 
-/**
- * center getter.
- * @return the center of the Sphere
- */
 Point3 Sphere::center() const {
     return m_center;
 }
 
-/**
- * radius getter.
- * @return the radius of the Sphere
- */
 double Sphere::radius() const {
     return m_radius;
 }
 
-/**
- * center setter.
- * @param center a new center for the Sphere
- */
-void Sphere::center(Point3 center) {
-    m_center.x(center.x());
-    m_center.y(center.y());
-    m_center.z(center.z());
+std::shared_ptr<Material> Sphere::materialPtr() const {
+    return m_materialPtr;
 }
 
-/**
- * radius setter.
- * @param radius a new radius for the Sphere
- */
+void Sphere::center(const Point3& center) {
+    m_center = center;
+}
+
 void Sphere::radius(double radius) {
     m_radius = radius;
 }
 
-/**
- * indicates whether a ray hit the Sphere in a specified interval.
- * @param r a ray
- * @param minT minimum value of the hit point
- * @param maxT maximum value of the hit point
- * @param rec a hit record
- * @return whether r hit the Sphere in the specified interval
- */
+void Sphere::materialPtr(std::shared_ptr<Material> materialPtr) {
+    m_materialPtr = materialPtr;
+}
+
 bool Sphere::hit(const Ray &r, double minT, double maxT, HitRecord &rec) const {
     /**
      * a Sphere is the set of all the points P=(x,y,z), who's distance from the center C=(Cx,Cy,Cz) is r.
@@ -67,7 +42,7 @@ bool Sphere::hit(const Ray &r, double minT, double maxT, HitRecord &rec) const {
      * expanding the last result: (B*B)*t^2 + 2*B*(A-C)*t + (A-C)*(A-C)-r^2 = 0.
      * the amount of solutions with respect to t of the last, is the amount of intersects between the Sphere and the Ray.
      */
-    Vec3 oc = r.origin() - m_center; // Vector from the origin of the Ray to the center of the Sphere
+    Vec3 oc = r.origin() - m_center; // Vector from the m_origin of the Ray to the center of the Sphere
     auto a = dot(r.direction(), r.direction());
     auto b = 2.0 * dot(r.direction(), oc);
     auto c = dot(oc, oc) - m_radius * m_radius;
@@ -93,10 +68,10 @@ bool Sphere::hit(const Ray &r, double minT, double maxT, HitRecord &rec) const {
     rec.point(r.at(rec.t())); // The point of intersection is the ray's location at said time
 
     Vec3 outwardNormal = (rec.point() - m_center) / m_radius; // The normal to the Sphere at the intersection
-    rec.setFaceNormal(r, outwardNormal);
+    rec.faceNormal(r, outwardNormal);
+    rec.materialPtr(m_materialPtr);
 
     return true;
 }
-
 
 
