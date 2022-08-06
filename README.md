@@ -24,7 +24,8 @@ To run the program, the standard CMake workflow can be used:
 ```bash
 mkdir -p build && cd build
 cmake ..
-make -j && make KNN-RayTracing > res.ppm
+make -j
+./KNN-RayTracing > res.ppm
 open res.ppm
 ```
 
