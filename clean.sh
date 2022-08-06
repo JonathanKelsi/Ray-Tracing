@@ -1,1 +1,0 @@
-rm a.out res.ppm
