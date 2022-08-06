@@ -29,4 +29,4 @@ open res.ppm
 ```
 
 ## Acknowledgments
-This project was made relining on the book *Ray Tracing In One Weekend*, written by Peter Shirley.
+This project was made following the book *Ray Tracing In One Weekend*, written by Peter Shirley.
