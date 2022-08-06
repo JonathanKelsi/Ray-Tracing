@@ -13,6 +13,8 @@ private:
     double e[3];
 
 public:
+    // Constructors
+
     /**
      * empty constructor.
      */
@@ -26,12 +28,7 @@ public:
      */
     Vec3(double e0, double e1, double e2);
 
-
-    /**
-     * Copy constructor.
-     * @param v another vector
-     */
-    Vec3(const Vec3& v);
+    // Getters and setters
 
     /**
      * x component getter.
@@ -69,6 +66,8 @@ public:
      */
     void z(double z);
 
+    // Operators
+
     /**
      * the '-' operator.
      * @return the vector reversed
@@ -94,64 +93,64 @@ public:
      * @param t a scalar
      * @return the vector, multiplied by the scalar t
      */
-    Vec3& operator*=(const double t);
-
+    Vec3& operator*=(double t);
 
     /**
      * the '/=' operator
      * @param t a scalar
      * @return the vector, multiplied by the inverse of the scalar t
      */
-    Vec3& operator/=(const double t);
+    Vec3& operator/=(double t);
 
     /**
-     * @return the length of the vector, squared
-     */
+    * the '+' operator.
+    * @param u another vector
+    * @return the sum of the vectors
+    */
     const Vec3 operator+(const Vec3& u) const;
 
-
     /**
-     * @return the length of the vector
-     */
+    * the '-' operator.
+    * @param u another vector
+    * @return the vectors' subtraction
+    */
     const Vec3 operator-(const Vec3& u) const;
 
     /**
-     * the '+' operator.
-     * @param u another vector
-     * @return the sum of the two vectors
-     */
+    * the '*' operator.
+    * @param t a scalar
+    * @return the vector multiplied by the scalar t
+    */
     const Vec3 operator*(double t) const;
 
     /**
-     * the '-' operator.
-     * @param u another vector
-     * @return the sum of the vector, and the reversed vector u
-     */
+    * the '*' operator.
+    * @param u another vector
+    * @return the product of the vector and u
+    */
     const Vec3 operator*(const Vec3& u) const;
 
     /**
-     * the '*' operator.
-     * @param t a scalar
-     * @return the vector, multiplied by the scalar t
-     */
+    * the '/' operator.
+    * @param t a scalar
+    * @return the vector, multiplied by the inverse of the scalar t
+    */
     const Vec3 operator/(double t) const;
 
+    // Other utility functions
+
     /**
-     * the '/' operator.
-     * @param t a scalar
-     * @return the vector, multiplied by the inverse of the scalar t
-     */
+    * @return the length of the vector
+    */
     double len() const;
 
     /**
-     * the '*' operator.
-     * @param u another vector
-     * @return the dot product of the vector and u
-     */
+    * @return the length of the vector, squared
+    */
     double lenSquared() const;
 };
 
-// Other Vec3-related functions
+// More operators and utility functions
 
 /**
  * the '<<' operator.
@@ -190,7 +189,7 @@ Vec3 cross(const Vec3& u, const Vec3& v);
  * @param v a vector
  * @return the vector v normalized
  */
-Vec3 unitVector(Vec3 v);
+Vec3 unitVector(const Vec3& v);
 
 // Type aliases for Vec3
 using Point3 = Vec3;

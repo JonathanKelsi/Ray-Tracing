@@ -1,5 +1,3 @@
-// Created by jonathan
-
 #ifndef HITTABLELIST_H
 #define HITTABLELIST_H
 
@@ -7,9 +5,13 @@
 #include <memory>
 #include <vector>
 
+/**
+ * This class represents a list of hittable objects
+ */
 class HittableList : public IHittable {
 private:
-    std::vector<std::shared_ptr<IHittable>> m_hittables;
+    std::vector<std::shared_ptr<IHittable>> m_hittableVec;
+
 public:
     /**
      * empty constructor.
@@ -20,32 +22,32 @@ public:
      * constructor.
      * @param hittable a shared_ptr to a hittable object
      */
-    HittableList(std::shared_ptr<IHittable> hittable);
+    HittableList(const std::shared_ptr<IHittable>& hittable);
 
     /**
-     * hittables getter.
-     * @return the hittables vector
+     * hittableVec getter.
+     * @return the hittable vector
      */
-    std::vector<std::shared_ptr<IHittable>> hittables();
+    std::vector<std::shared_ptr<IHittable>> hittableVec();
 
     /**
-     * clears the hittable vectors.
+     * clears the hittable vector.
      */
     void clear();
 
     /**
-     * add another shared_ptr to vector.
+     * add another hittable to the vector.
      * @param hittable
      */
-    void add(std::shared_ptr<IHittable> hittable);
+    void add(const std::shared_ptr<IHittable>& hittable);
 
     /**
-     * indicates whether a ray hit one of the hittables in a specified interval.
+     * indicates whether a ray hit one of the hittable in a specified interval.
      * @param r a ray
      * @param minT minimum value of the hit point
      * @param maxT maximum value of the hit point
      * @param rec a hit record
-     * @return whether r hit one of the hittables in the specified interval
+     * @return whether r hit one of the hittable in the specified interval
      */
     bool hit(const Ray& r, double minT, double maxT, HitRecord& rec) const override;
 };

@@ -1,11 +1,9 @@
-// Created by jonathan
-
 #ifndef HITRECORD_H
 #define HITRECORD_H
 
-#include "../rays/Vec3.h"
-#include "../rays/Ray.h"
-#include "../rays/RayTracing.h"
+#include "../ray/Vec3.h"
+#include "../ray/Ray.h"
+#include "../other/RayTracing.h"
 
 /**
  * This class saves the data of an intersection of an 'IHittable' with a ray.

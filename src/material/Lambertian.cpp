@@ -1,5 +1,3 @@
-// Created by jonathan
-
 #include "Lambertian.h"
 
 Lambertian::Lambertian(const Color &albedo) : m_albedo(albedo) {}

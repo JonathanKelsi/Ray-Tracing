@@ -2,7 +2,6 @@
 #include "RayTracing.h"
 #include <random>
 
-
 double degToRad(double degrees) {
     return degrees * pi / 180.0;
 }
@@ -12,7 +11,6 @@ double randomDouble() {
     static std::mt19937 generator;
     return distribution(generator);
 }
-
 
 double randomDouble(double min, double max) {
     return min + (max - min) * randomDouble();
@@ -25,7 +23,6 @@ double clamp(double x, double min, double max) {
         return max;
     return x;
 }
-
 
 Vec3 randomUnitVector() {
     auto x = randomDouble();

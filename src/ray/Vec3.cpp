@@ -15,12 +15,6 @@ Vec3::Vec3(double e0, double e1, double e2) {
     e[2] = e2;
 }
 
-Vec3::Vec3(const Vec3& v) {
-    e[0] = v.e[0];
-    e[1] = v.e[1];
-    e[2] = v.e[2];
-}
-
 double Vec3::x() const {
     return e[0];
 }
@@ -53,7 +47,8 @@ double Vec3::operator[](int i) const {
     if (0 <= i && i <= 2) {
         return e[i];
     }
-    exit(1);
+
+    throw std::out_of_range("Component index out of range");
 }
 
 Vec3 &Vec3::operator+=(const Vec3& v) {
@@ -63,16 +58,14 @@ Vec3 &Vec3::operator+=(const Vec3& v) {
     return *this;
 }
 
-Vec3 &Vec3::operator*=(const double t) {
+Vec3 &Vec3::operator*=(double t) {
     e[0] *= t;
     e[1] *= t;
     e[2] *= t;
     return *this;
 }
 
-Vec3 &Vec3::operator/=(const double t) {
-    if (t == 0)
-        exit(1);
+Vec3 &Vec3::operator/=(double t) {
     *this *= 1 / t;
     return *this;
 }
@@ -86,7 +79,7 @@ double Vec3::len() const {
 }
 
 const Vec3 Vec3::operator+(const Vec3& u) const {
-    return Vec3(u.e[0] + e[0], u.e[1] + e[1], u.e[2] + e[2]);
+    return Vec3(e[0] + u.e[0], e[1] + u.e[1], e[2] + u.e[2]);
 }
 
 const Vec3 Vec3::operator-(const Vec3& u) const {
@@ -102,7 +95,7 @@ const Vec3 Vec3::operator/(double t) const {
 }
 
 const Vec3 Vec3::operator*(const Vec3& u) const {
-    return Vec3(u.e[0] * this->e[0], u.e[1] * this->e[1], u.e[2] * this->e[2]);
+    return Vec3(u.e[0] * e[0], u.e[1] * e[1], u.e[2] * e[2]);
 }
 
 const std::ostream& operator<<(std::ostream &out, const Vec3& v) {
@@ -123,7 +116,7 @@ Vec3 cross(const Vec3& u, const Vec3& v) {
                 u.x() * v.y() - u.y() * v.x());
 }
 
-Vec3 unitVector(Vec3 v) {
+Vec3 unitVector(const Vec3& v) {
     return v / v.len();
 }
 

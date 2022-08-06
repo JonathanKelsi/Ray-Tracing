@@ -1,5 +1,3 @@
-// Created by jonathan
-
 #include "HitRecord.h"
 
 HitRecord::HitRecord() : m_point(), m_normal(), m_t(0), m_frontFace(false) {}
@@ -52,7 +50,7 @@ void HitRecord::materialPtr(std::shared_ptr<Material> materialPtr) {
 }
 
 void HitRecord::faceNormal(const Ray &r, const Vec3 &outwardNormal) {
-    // Check whether both the ray and the outward normal are at opposite directions (the ray is outside the Sphere)
+    // Check whether both the ray and the outward normal are at opposite directions (the ray is outside of the sphere)
     m_frontFace = dot(r.direction(), outwardNormal) < 0;
 
     // Make sure the normal points against the ray

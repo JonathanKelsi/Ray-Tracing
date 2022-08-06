@@ -1,9 +1,7 @@
-// Created by jonathan
-
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "../rays/RayTracing.h"
+#include "../other/RayTracing.h"
 
 class Camera {
 private:
@@ -18,7 +16,7 @@ public:
     Camera();
 
     /**
-     * Given two values, representing lengths of offset vectors parallel to the screen's sides,
+     * Given two values, representing lengths of offset vectors along the screen sides,
      * this function returns the camera's ray's location.
      * @param u first offset vector length
      * @param v second offset vector length

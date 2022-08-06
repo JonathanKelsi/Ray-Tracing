@@ -1,23 +1,21 @@
-// Created by jonathan
 #include "HittableList.h"
 
 HittableList::HittableList() {}
 
-HittableList::HittableList(std::shared_ptr<IHittable> hittable) {
+HittableList::HittableList(const std::shared_ptr<IHittable>& hittable) {
     add(hittable);
 }
 
-std::vector<std::shared_ptr<IHittable>> HittableList::hittables() {
-    return m_hittables;
+std::vector<std::shared_ptr<IHittable>> HittableList::hittableVec() {
+    return m_hittableVec;
 }
 
 void HittableList::clear() {
-    // Since we're using shared_ptr there's no need to call destructors
-    m_hittables.clear();
+    m_hittableVec.clear();
 }
 
-void HittableList::add(std::shared_ptr<IHittable> hittable) {
-    m_hittables.push_back(hittable);
+void HittableList::add(const std::shared_ptr<IHittable>& hittable) {
+    m_hittableVec.push_back(hittable);
 }
 
 bool HittableList::hit(const Ray &r, double minT, double maxT, HitRecord &rec) const {
@@ -25,7 +23,7 @@ bool HittableList::hit(const Ray &r, double minT, double maxT, HitRecord &rec) c
     bool hitAnything = false;
     auto closestSoFar = maxT;
 
-    for (const auto& hittable : m_hittables) {
+    for (const auto& hittable : m_hittableVec) {
         if (hittable->hit(r, minT, closestSoFar, tempRec)) {
             hitAnything = true;
             closestSoFar = tempRec.t();

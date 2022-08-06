@@ -1,13 +1,11 @@
-// Created by jonathan
-
 #ifndef IHITTABLE_H
 #define IHITTABLE_H
 
-#include "../rays/Ray.h"
+#include "../ray/Ray.h"
 #include "HitRecord.h"
 
 /**
- * this class represents an object hittable by rays.
+ * this class represents an object hittable by ray.
  */
 class IHittable {
 public:

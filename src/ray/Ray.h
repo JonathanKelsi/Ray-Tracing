@@ -26,8 +26,8 @@ public:
     Ray(const Point3& origin, const Vec3& direction);
 
     /**
-     * m_origin getter.
-     * @return the m_origin of the Ray
+     * origin getter.
+     * @return the origin of the Ray
      */
     Point3 origin() const;
 
@@ -38,8 +38,8 @@ public:
     Vec3 direction() const;
 
     /**
-     * m_origin setter.
-     * @param origin a new m_origin point
+     * origin setter.
+     * @param origin a new origin point
      */
     void origin(const Point3& origin);
 

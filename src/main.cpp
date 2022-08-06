@@ -1,8 +1,8 @@
-#include "header files/RayTracing.h"
-#include "header files/Color.h"
-#include "header files/HittableList.h"
-#include "header files/Sphere.h"
-#include "header files/Camera.h"
+#include "other/RayTracing.h"
+#include "ray/Color.h"
+#include "hittable/HittableList.h"
+#include "hittable/Sphere.h"
+#include "camera/Camera.h"
 #include <iostream>
 
 Color rayColor(const Ray& r, const IHittable& world, int  depth) {

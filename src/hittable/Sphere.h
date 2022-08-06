@@ -1,19 +1,18 @@
-// Created by jonathan
-
 #ifndef RAYTRACING_SPHERE_H
 #define RAYTRACING_SPHERE_H
 
 #include "IHittable.h"
-#include "../rays/Vec3.h"
+#include "../ray/Vec3.h"
 
 /**
- * This class represents a Sphere in R^3, that is hittable by rays.
+ * This class represents a Sphere in R^3.
  */
 class Sphere : public IHittable {
 private:
     Point3 m_center;
     double m_radius;
     std::shared_ptr<Material> m_materialPtr;
+
 public:
     /**
      * empty constructor.
@@ -45,7 +44,6 @@ public:
      */
     std::shared_ptr<Material> materialPtr() const;
 
-
     /**
     * center setter.
     * @param center a new center for the Sphere
@@ -65,12 +63,12 @@ public:
     void materialPtr(std::shared_ptr<Material> materialPtr);
 
     /**
-     * indicates whether a ray hit the Sphere in a specified interval.
+     * indicates whether a ray hit the sphere in a specified interval.
      * @param r a ray
      * @param minT minimum value of the hit point
      * @param maxT maximum value of the hit point
      * @param rec a hit record
-     * @return whether r hit the Sphere in the specified interval
+     * @return whether r hit the sphere in the specified interval
      */
     bool hit(const Ray& r, double minT, double maxT, HitRecord& rec) const;
 };

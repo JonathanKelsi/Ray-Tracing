@@ -1,9 +1,7 @@
-// Created by jonathan
-
 #ifndef LAMBERTIAN_H
 #define LAMBERTIAN_H
 
-#include "../../rays/Vec3.h"
+#include "../ray/Vec3.h"
 #include "Material.h"
 
 class Lambertian : Material {
@@ -17,7 +15,6 @@ public:
     Lambertian(const Color& albedo);
 
     /**
-     * given a ray, the point where it hit the material's
      * @param ray
      * @param rec
      * @param attenuation

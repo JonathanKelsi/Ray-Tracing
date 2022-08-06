@@ -1,5 +1,3 @@
-// Created by jonathan
-
 #include "Sphere.h"
 #include <cmath>
 

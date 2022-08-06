@@ -1,10 +1,8 @@
-// Created by jonathan
-
 #ifndef RAYTRACING_MATERIAL_H
 #define RAYTRACING_MATERIAL_H
 
-#include "../../rays/RayTracing.h"
-#include "../HitRecord.h"
+#include "../other/RayTracing.h"
+#include "../hittable/HitRecord.h"
 
 class Material {
     public:
