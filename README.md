@@ -1,4 +1,4 @@
-# Ray Tracing
+# Ray Tracing (In Progress)
 
 ## Description
 A fairly simple ray tracer, made for education purposes.
